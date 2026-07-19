@@ -23,9 +23,9 @@ export default function HeroHeader({ heroGlitch }) {
             <span className="caret-blink">_</span>
           </div>
           {profileData.heroText.tags && (
-            <div className="hero-tags flex gap-2 justify-end mt-3">
+            <div className="hero-tags">
               {profileData.heroText.tags.map((tag, idx) => (
-                <span key={idx} className="tag text-[9px] px-2 py-0.5 border border-ink bg-panel uppercase font-bold tracking-wider">
+                <span key={idx} className="tag">
                   {tag}
                 </span>
               ))}
@@ -34,7 +34,7 @@ export default function HeroHeader({ heroGlitch }) {
         </div>
         {profileData.heroText.avatar && (
           <div className="hero-avatar-container">
-            <div className="crt-monitor flex flex-col">
+            <div className="crt-monitor">
               <div className="crt-screen relative">
                 <div className="scanlines"></div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -44,7 +44,7 @@ export default function HeroHeader({ heroGlitch }) {
                   className="hero-avatar"
                 />
               </div>
-              <div className="crt-bezel flex items-center justify-between mt-2 pt-2 border-t border-ink/30 text-[9px] font-bold tracking-wider uppercase">
+              <div className="crt-bezel">
                 <span className="opacity-75">DEV_OS_SYS</span>
                 <div className="flex items-center gap-1.5">
                   <span className="opacity-75">ONLINE</span>

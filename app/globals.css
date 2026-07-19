@@ -62,7 +62,7 @@ html, body {
   background: var(--bg);
   font-family: var(--font-jetbrains-mono), monospace;
   color: var(--body);
-  overflow: auto;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   transition: background 0.3s ease, color 0.3s ease;
@@ -328,7 +328,10 @@ h1, h2, h3, .display {
   left: 24px;
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  max-height: calc(100vh - 64px - 60px);
+  gap: 20px 24px;
   z-index: 10;
 }
 
@@ -383,6 +386,7 @@ h1, h2, h3, .display {
   position: absolute;
   width: 520px;
   max-width: 90vw;
+  max-height: calc(100vh - 40px - 46px - 20px);
   background: var(--panel);
   border: 2.5px solid var(--ink);
   box-shadow: var(--shadow);
@@ -508,7 +512,8 @@ h1, h2, h3, .display {
 
 .win-body {
   padding: 22px 24px;
-  max-height: 60vh;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   transition: max-height 0.3s ease;
 }

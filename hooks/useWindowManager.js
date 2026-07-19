@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function useWindowManager() {
   const [openWindows, setOpenWindows] = useState({
@@ -49,6 +49,21 @@ export default function useWindowManager() {
     music: { x: null, y: null, styleLeft: "48%", styleTop: "210px" },
     resume: { x: null, y: null, styleLeft: "56%", styleTop: "230px" },
   });
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerHeight < 768) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPositions({
+        about: { x: null, y: null, styleLeft: "6%", styleTop: "60px" },
+        projects: { x: null, y: null, styleLeft: "24%", styleTop: "90px" },
+        skills: { x: null, y: null, styleLeft: "12%", styleTop: "75px" },
+        contact: { x: null, y: null, styleLeft: "30%", styleTop: "105px" },
+        terminal: { x: null, y: null, styleLeft: "18%", styleTop: "120px" },
+        music: { x: null, y: null, styleLeft: "36%", styleTop: "135px" },
+        resume: { x: null, y: null, styleLeft: "42%", styleTop: "150px" },
+      });
+    }
+  }, []);
 
   const focusWindow = (name) => {
     setZTop((prev) => {
